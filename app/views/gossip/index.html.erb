@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-4">
+    <div class="list-group">
+      <a href="<%= gossip_index_path%>" class="list-group-item list-group-item-action list-group-item-success">Home</a>
+      <a href="<%= new_gossip_path%>" class="list-group-item list-group-item-action list-group-item-info">Add Gossip</a>
+      <a href="<%= user_path(@user_id) %>" class="list-group-item list-group-item-action list-group-item-warning">Profil</a>
+      <a href="<%= registration_logout_path %>" class="list-group-item list-group-item-action list-group-item-danger">Log out</a>
+  </div>
+</div>
+<div class="col-8">
+    <div class="show-gossip">
+        <h1 >Liste des Gossips</h1>
+
+        <%@user.each do |user| %>
+           <%  user.gossip1s.each do |gossip| %>
+           <div class="gossip-container">
+             <h4 style="font-weight: bold;"><%= user.first_name%></h5>
+            <p><%= gossip.gossip_content %></p>
+            <p class="gossip-like-comment"><span> <%= gossip.likes.count %>.</span> <a href="<%= comment_like_path(gossip.id)%>" class= "btn btn-primary">Like</a></p>
+            <p class="gossip-like-comment"><span><%=gossip.comments.count%>.</span> <a href="<%= comment_comment_path(gossip.id)%>" class= "btn btn-warning">Comment</a></p>
+           </div>
+           <% end %>
+           
+       <% end %>
+   </div>    
+</div>
+</div>

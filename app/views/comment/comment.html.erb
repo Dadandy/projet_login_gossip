@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-4">
+		<div class="list-group">
+			<a href="<%= gossip_index_path%>" class="list-group-item list-group-item-action list-group-item-success">Home</a>
+			<a href="<%= new_gossip_path%>" class="list-group-item list-group-item-action list-group-item-info">Add Gossip</a>
+			<a href="" class="list-group-item list-group-item-action list-group-item-warning">Profil</a>
+			<a href="<%= registration_logout_path %>" class="list-group-item list-group-item-action list-group-item-danger">Log out</a>
+		</div>
+	</div>
+	<div class="col-8">
+		<h2 style="font-weight: bold;">Le gossip</h2>
+		<% @gossip.each do |gossip| %>
+		<p><%= gossip.gossip_content%></p>
+		<h5 style="font-weight: bold;">Tous les commentaires</h5>
+		<% gossip.comments.each do |comment|%>
+		<div class="commentaires">
+			<p><b><%= comment.user.first_name%></b> à écrit ce commentaire</p>
+			<p>>: <%= comment.comment_content%></p>
+		</div>
+		<% end %>
+		<%= form_tag "/comment/added_comment", method: 'POST' do %>
+			<%= label_tag 'Votre commentaire ici'%>
+			<%= hidden_field_tag 'id', gossip.id%>
+			<%= text_area_tag 'comment','',:class => 'form-control'%>
+			<%= submit_tag 'Enregister',:class => 'btn btn-success'%>
+		<% end %>
+		<% end %>
+	</div>
+</div>

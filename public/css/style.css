@@ -1,0 +1,28 @@
+p,body,html,h5{
+	margin: 0!important;
+	padding: 0!important;
+}
+.connexion,.add_gossiop{
+	max-width: 600px;
+	margin: 100px auto;
+}
+.gossip-container{
+	margin-top: 20px;
+}
+.list-group{
+	position: fixed;
+	width: 375px;
+	margin-top: 5px;
+}
+
+.gossip-like-comment{
+	display: inline-block;
+	margin-right: 20px;
+}
+.gossip-like-comment span{
+	font-size:10px;
+}
+.commentaires{
+	margin-left: 50px;
+	margin-bottom: 20px;
+}
